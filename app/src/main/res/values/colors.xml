@@ -6,8 +6,10 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#1D2026</color>
+    <color name="btn_bg_color">#2D303A</color>
     <color name="white">#FFFFFFFF</color>
     <color name="title_color">#80FFFFFF</color>
     <color name="search_color">#4CFFFFFF</color>
     <color name="popular_text_color">#FFFFFFE5</color>
+    <color name="common_color">#FF855E</color>
 </resources>

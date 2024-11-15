@@ -13,16 +13,17 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="CategoryButton" parent="Widget.AppCompat.Button">
+    <style name="CategoryTextView" parent="Widget.AppCompat.Button">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:backgroundTint">#333333</item> <!-- Button background color -->
-        <item name="android:textColor">#FFFFFF</item> <!-- Button text color -->
-        <item name="android:textSize">14sp</item>
-        <item name="android:drawablePadding">8dp</item> <!-- Padding between icon and text -->
+        <item name="android:textColor">@color/popular_text_color</item> <!-- Button text color -->
+        <item name="android:textSize">@dimen/_10ssp</item>
+        <item name="android:drawablePadding">@dimen/_5sdp</item> <!-- Padding between icon and text -->
         <item name="android:gravity">center</item> <!-- Center icon and text -->
-        <item name="android:paddingTop">@dimen/_12sdp</item> <!-- Top padding -->
-        <item name="android:paddingBottom">@dimen/_12sdp</item> <!-- Bottom padding -->
+        <item name="android:paddingTop">16dp</item> <!-- Top padding -->
+        <item name="android:paddingBottom">@dimen/_6sdp</item> <!-- Bottom padding -->
+        <item name="android:fontFamily">@font/gilroy_medium</item>
+
     </style>
 
 

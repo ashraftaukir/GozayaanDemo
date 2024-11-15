@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">GozayaanDemo</string>
+    <string name="dhaka_bangladesh">Dhaka,Bangladesh</string>
+    <string name="search">Search</string>
+    <string name="flights">Flights</string>
+    <string name="hotels">Hotels</string>
+    <string name="visa">Visa</string>
+    <string name="buses">Buses</string>
+    <string name="recommended">Recommended</string>
+    <string name="see_all">See All</string>
+    <string name="popular_categories">Popular Categories</string>
 </resources>

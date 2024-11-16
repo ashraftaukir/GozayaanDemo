@@ -21,7 +21,7 @@
 
     <!-- Title Text -->
     <TextView
-        android:id="@+id/titleTextView"
+        android:id="@+id/textViewPropertyName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mountain Safari"
@@ -35,13 +35,13 @@
 
     <!-- Subtitle Text -->
     <TextView
-        android:id="@+id/subtitleTextView"
+        android:id="@+id/textViewLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="India"
         android:textColor="#BBBBBB"
         android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@id/titleTextView"
+        app:layout_constraintTop_toBottomOf="@id/textViewPropertyName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

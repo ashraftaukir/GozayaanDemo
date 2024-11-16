@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.taukir.gozayaandemo.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
 
@@ -16,17 +16,23 @@ class HomeActivity : AppCompatActivity() {
         ViewModelFactory(PropertyRepository(RetrofitInstance.api))
     }
 
+    // Declare binding variable
+    private lateinit var binding: ActivityHomeBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
 
-        val recyclerView: RecyclerView = findViewById(R.id.recommendedRecyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        // Initialize binding
+        binding = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // Set up RecyclerView using ViewBinding
+        binding.recommendedRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
         // Observe properties data
         propertyViewModel.properties.observe(this) { properties ->
             propertyAdapter = PropertyAdapter(properties)
-            recyclerView.adapter = propertyAdapter
+            binding.recommendedRecyclerView.adapter = propertyAdapter
         }
 
         // Observe error messages

@@ -33,7 +33,7 @@
             android:fontFamily="@font/rubik_semi_bold"
             android:text="@string/mountain_safari"
             android:textColor="#FFFFFF"
-            android:textSize="@dimen/_11ssp"
+            android:textSize="@dimen/_10ssp"
             app:layout_constraintBottom_toTopOf="@id/mapImageView"
             app:layout_constraintStart_toStartOf="parent"
 
@@ -57,7 +57,7 @@
             android:layout_marginStart="@dimen/_5sdp"
             android:text="@string/india"
             android:textColor="#FFFFFF"
-            android:textSize="@dimen/_10ssp"
+            android:textSize="@dimen/_9ssp"
             app:layout_constraintBottom_toBottomOf="@+id/mapImageView"
             app:layout_constraintStart_toEndOf="@id/mapImageView"
             app:layout_constraintTop_toTopOf="@id/mapImageView" />

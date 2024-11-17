@@ -6,40 +6,63 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="15dp"
     app:cardElevation="4dp"
-    android:layout_margin="8dp"
+    android:layout_margin="@dimen/_5sdp"
     android:background="@color/black">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/destinationImage"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="@dimen/_150sdp"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_map" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@mipmap/ic_launcher" />
 
         <TextView
             android:id="@+id/destinationTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mountain Safari"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:fontFamily="@font/rubik_semi_bold"
+            android:text="@string/mountain_safari"
             android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="8dp" />
+            android:textSize="@dimen/_9ssp"
+            app:layout_constraintBottom_toTopOf="@id/mapImageView"
+            app:layout_constraintStart_toStartOf="parent"
+
+            />
+        <ImageView
+            android:id="@+id/mapImageView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_map"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/destinationTitle" />
+
 
         <TextView
             android:id="@+id/destinationLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="India"
-            android:textColor="#AAAAAA"
-            android:textSize="14sp"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="8dp" />
-    </LinearLayout>
+            android:layout_marginStart="@dimen/_3sdp"
+            android:text="@string/india"
+            android:fontFamily="@font/rubik_regular"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/_8ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/mapImageView"
+            app:layout_constraintStart_toEndOf="@id/mapImageView"
+            app:layout_constraintTop_toTopOf="@id/mapImageView" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

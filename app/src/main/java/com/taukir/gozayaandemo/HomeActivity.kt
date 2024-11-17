@@ -6,7 +6,6 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.taukir.gozayaandemo.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
@@ -31,7 +30,7 @@ class HomeActivity : AppCompatActivity() {
 
         // Observe properties data
         propertyViewModel.properties.observe(this) { properties ->
-            propertyAdapter = PropertyAdapter(properties)
+            propertyAdapter = PropertyAdapter(properties!!)
             binding.recommendedRecyclerView.adapter = propertyAdapter
         }
 

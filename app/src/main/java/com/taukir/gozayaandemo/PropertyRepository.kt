@@ -1,17 +1,22 @@
 package com.taukir.gozayaandemo
 
 import ApiService
-import retrofit2.Response
 
 class PropertyRepository(private val apiService: ApiService) {
 
-    // Fetch properties from the API
-    suspend fun getProperties(): Response<List<Property>> {
+    // Fetch properties using coroutine and handle exceptions cleanly
+    suspend fun getProperties(): List<Property>? {
         return try {
-            apiService.getProperties()
+            val response = apiService.getProperties()
+            if (response.isSuccessful) {
+                response.body() // Return the list of properties if successful
+            } else {
+                throw Exception("Error: ${response.code()} ${response.message()}")
+            }
         } catch (e: Exception) {
-            // Log and handle exceptions
-            Response.error(500, okhttp3.ResponseBody.create(null, "Error fetching data"))
+            e.printStackTrace() // Log the exception
+            null // Return null in case of error
         }
     }
 }
+

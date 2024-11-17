@@ -10,7 +10,9 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <!-- Force AppCompat RatingBar style -->
+        <item name="android:ratingBarStyle">@style/Widget.AppCompat.RatingBar.Indicator</item>
+
     </style>
 
     <style name="CategoryTextView" parent="Widget.AppCompat.Button">

@@ -83,15 +83,19 @@ class HomeActivity : AppCompatActivity() {
      // Navigates to the ViewAllPropertyActivity
 
     private fun navigateToViewAllProperties() {
-        val intent = Intent(this, ViewAllPropertyActivity::class.java)
+//        val intent = Intent(this, ViewAllPropertyActivity::class.java)
+//
+//        // Serialize the property list to JSON
+//        val gson = Gson()
+//        val json = gson.toJson(propertyList)
+//
+//        // Pass the JSON string via Intent
+//        intent.putExtra("property_list", json)
+//        startActivity(intent)
 
-        // Serialize the property list to JSON
-        val gson = Gson()
-        val json = gson.toJson(propertyList)
-
-        // Pass the JSON string via Intent
-        intent.putExtra("property_list", json)
+        val intent = Intent(this, PropertyDetailsActivity::class.java)
         startActivity(intent)
+
 
     }
 

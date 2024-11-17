@@ -1,42 +1,104 @@
 package com.taukir.gozayaandemo
 
 import PropertyAdapter
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.gson.Gson
 import com.taukir.gozayaandemo.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
 
-    private lateinit var propertyAdapter: PropertyAdapter
+    // ViewModel with factory for data management
     private val propertyViewModel: PropertyViewModel by viewModels {
         ViewModelFactory(PropertyRepository(RetrofitInstance.api))
     }
 
-    // Declare binding variable
+    // Declare binding variable for ViewBinding
     private lateinit var binding: ActivityHomeBinding
+
+    // RecyclerView adapter for property items
+    private lateinit var propertyAdapter: PropertyAdapter
+
+    // Property list
+    private var propertyList: List<Property> = emptyList()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Initialize binding
+        // Initialize ViewBinding
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Set up RecyclerView using ViewBinding
-        binding.recommendedRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        // Setup UI components
+        setupRecyclerView()
+        observeViewModel()
+        setupClickListeners()
+    }
 
-        // Observe properties data
+
+    // Sets up the RecyclerView with a horizontal LinearLayoutManager
+
+    private fun setupRecyclerView() {
+        binding.recommendedRecyclerView.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+    }
+
+
+     // Observes LiveData from ViewModel for property data and error messages
+
+    private fun observeViewModel() {
+        // Observe the properties data
         propertyViewModel.properties.observe(this) { properties ->
-            propertyAdapter = PropertyAdapter(properties!!)
-            binding.recommendedRecyclerView.adapter = propertyAdapter
+            if (properties != null) {
+                propertyList = properties // Save the property list for later use
+                propertyAdapter = PropertyAdapter(properties)
+                binding.recommendedRecyclerView.adapter = propertyAdapter
+            }
         }
 
-        // Observe error messages
+        // Observe error messages from ViewModel
         propertyViewModel.errorMessage.observe(this) { errorMessage ->
-            Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show()
+            if (!errorMessage.isNullOrEmpty()) {
+                showToast(errorMessage)
+            }
         }
+    }
+
+
+     // Sets up click listeners for UI elements
+
+    private fun setupClickListeners() {
+        // Handle "See All" button click
+        binding.seeAllTextView.setOnClickListener {
+            navigateToViewAllProperties()
+        }
+    }
+
+
+     // Navigates to the ViewAllPropertyActivity
+
+    private fun navigateToViewAllProperties() {
+        val intent = Intent(this, ViewAllPropertyActivity::class.java)
+
+        // Serialize the property list to JSON
+        val gson = Gson()
+        val json = gson.toJson(propertyList)
+
+        // Pass the JSON string via Intent
+        intent.putExtra("property_list", json)
+        startActivity(intent)
+
+    }
+
+
+     // Displays a toast message
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }

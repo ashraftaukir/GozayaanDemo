@@ -5,17 +5,45 @@
     android:layout_height="match_parent"
     android:background="@color/black">
 
-    <!-- Hero Image Section -->
-    <ImageView
-        android:id="@+id/heroImage"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_start_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/_20sdp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_end_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/_20sdp" />
+
+    <!-- Image Slider -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/imageSlider"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_visa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="5dp"
+        />
+
+    <!-- Dot Indicator -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/dotIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageSlider"
+        app:tabIndicatorColor="@android:color/white"
+        app:tabIndicatorHeight="3dp"
+        app:tabSelectedTextColor="@android:color/white" />
+
 
     <!-- Back Button -->
     <ImageView
@@ -34,29 +62,77 @@
         android:id="@+id/propertyName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:text="Mountain Safari"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/heroImage" />
+        android:fontFamily="@font/rubik_semi_bold"
+        android:text="@string/mountain_safari"
+        android:textColor="@color/default_white"
+        android:textSize="@dimen/_23ssp"
+        app:layout_constraintStart_toEndOf="@id/guideline_start_vertical"
+        app:layout_constraintTop_toBottomOf="@+id/dotIndicator" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/propertyName"
+        app:layout_constraintEnd_toStartOf="@id/guideline_end_vertical"
+        app:layout_constraintTop_toTopOf="@+id/propertyName">
+
+        <me.zhanghai.android.materialratingbar.MaterialRatingBar
+            android:id="@+id/materialRatingBar"
+            android:layout_width="@dimen/_14sdp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:isIndicator="false"
+            android:numStars="1"
+            android:progressBackgroundTint="@color/color_ash"
+            android:progressTint="@color/white"
+            android:rating=".49"
+            android:stepSize=".1"
+            app:layout_constraintBottom_toBottomOf="@+id/ratingText"
+            app:layout_constraintEnd_toStartOf="@+id/ratingText"
+            app:layout_constraintTop_toTopOf="@+id/ratingText" />
+
+
+        <!-- Rating Value -->
+        <TextView
+            android:id="@+id/ratingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="4.9"
+            android:textColor="@color/color_rating_value"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/mapImageView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:src="@drawable/ic_location"
+        app:layout_constraintStart_toEndOf="@id/guideline_start_vertical"
+        app:layout_constraintTop_toBottomOf="@+id/propertyName" />
+
 
     <!-- Location -->
     <TextView
         android:id="@+id/propertyLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="@dimen/_5sdp"
         android:text="Kolkata, India"
         android:textColor="@android:color/darker_gray"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/propertyName" />
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintBottom_toBottomOf="@+id/mapImageView"
+        app:layout_constraintStart_toEndOf="@id/mapImageView"
+        app:layout_constraintTop_toTopOf="@id/mapImageView" />
 
     <!-- Rating with RatingBar -->
     <LinearLayout
@@ -69,24 +145,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/propertyName">
 
-        <RatingBar
-            android:id="@+id/ratingBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:isIndicator="true"
-            android:numStars="1"
-            android:stepSize="0.1"
-            android:theme="@style/Widget.AppCompat.RatingBar.Indicator" />
-
-        <!-- Rating Value -->
-        <TextView
-            android:id="@+id/ratingText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="3.5"
-            android:textColor="@android:color/white"
-            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -95,13 +153,13 @@
         android:id="@+id/aboutTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:fontFamily="@font/rubik_regular"
         android:text="About the trip 🥰"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
+        android:textColor="@color/popular_text_color"
+        android:textSize="@dimen/_14ssp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/guideline_start_vertical"
         app:layout_constraintTop_toBottomOf="@id/propertyLocation" />
 
     <!-- Trip Description -->
@@ -109,14 +167,13 @@
         android:id="@+id/propertyDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="@font/rubik_regular"
         android:text="List of Inspiring Slogans a fresh coat for a fresh start meet the world make traveling fun explore the globe with a new sky, a new life..."
-        android:textColor="@android:color/darker_gray"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/color_rating_value"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end_vertical"
+        app:layout_constraintStart_toEndOf="@+id/guideline_start_vertical"
         app:layout_constraintTop_toBottomOf="@id/aboutTitle" />
 
     <!-- Bottom Section -->
@@ -126,32 +183,47 @@
         android:layout_height="80dp"
         android:background="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end_vertical"
+        app:layout_constraintStart_toEndOf="@id/guideline_start_vertical">
 
         <!-- Price -->
         <TextView
             android:id="@+id/priceText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="$5,307 / PER DAY"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
+            android:fontFamily="@font/rubik_regular"
+            android:text="$5,307"
+            android:textColor="@color/popular_text_color"
+            android:textSize="@dimen/_9ssp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/perDayTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/rubik_regular"
+            android:text="@string/per_day"
+            android:textColor="@color/color_white_low_opacity"
+            android:textSize="@dimen/_8ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/priceText"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
         <!-- Book Now Button -->
-        <Button
+        <TextView
             android:id="@+id/bookNowButton"
             android:layout_width="140dp"
             android:layout_height="50dp"
-            android:layout_marginEnd="16dp"
             android:background="@drawable/gradient_background"
-            android:text="Book Now"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
+            android:text="@string/book_now"
+            android:textColor="@color/btn_text_color"
+            android:fontFamily="@font/rubik_semi_bold"
+            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

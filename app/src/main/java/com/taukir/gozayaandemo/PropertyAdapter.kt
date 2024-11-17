@@ -1,10 +1,11 @@
+package com.taukir.gozayaandemo
+
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.taukir.gozayaandemo.databinding.ItemPropertyBinding
-import com.taukir.gozayaandemo.Property
-import com.taukir.gozayaandemo.R
 
 class PropertyAdapter(private val properties: List<Property>) :
     RecyclerView.Adapter<PropertyAdapter.PropertyViewHolder>() {

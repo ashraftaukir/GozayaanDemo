@@ -11,7 +11,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Force AppCompat RatingBar style -->
-        <item name="android:ratingBarStyle">@style/Widget.AppCompat.RatingBar.Indicator</item>
+<!--        <item name="android:ratingBarStyle">@style/Widget.AppCompat.RatingBar.Indicator</item>-->
 
     </style>
 

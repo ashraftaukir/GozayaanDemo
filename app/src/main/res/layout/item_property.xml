@@ -57,7 +57,7 @@
             android:layout_marginStart="@dimen/_3sdp"
             android:text="@string/india"
             android:fontFamily="@font/rubik_regular"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/color_rating_value"
             android:textSize="@dimen/_9ssp"
             app:layout_constraintBottom_toBottomOf="@+id/mapImageView"
             app:layout_constraintStart_toEndOf="@id/mapImageView"

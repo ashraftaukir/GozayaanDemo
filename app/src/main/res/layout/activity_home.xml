@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/black">
 
     <androidx.constraintlayout.widget.Guideline
@@ -86,6 +86,7 @@
         android:textSize="@dimen/_14ssp"
         app:layout_constraintStart_toEndOf="@+id/guideline_start_vertical"
         app:layout_constraintTop_toBottomOf="@id/searchBar" />
+
     <LinearLayout
         android:id="@+id/categoriesContainer"
         android:layout_width="0dp"
@@ -102,14 +103,14 @@
             style="@style/CategoryTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_8sdp"
             android:layout_weight="1"
             android:background="@drawable/button_background"
-            android:text="@string/flights"
-            android:textAllCaps="false"
-            android:layout_marginEnd="@dimen/_8sdp"
             android:gravity="center"
             android:paddingTop="16dp"
             android:paddingBottom="@dimen/_6sdp"
+            android:text="@string/flights"
+            android:textAllCaps="false"
             app:drawableTopCompat="@drawable/ic_flight" />
 
         <TextView
@@ -117,15 +118,15 @@
             style="@style/CategoryTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
             android:layout_weight="1"
             android:background="@drawable/button_background"
-            android:text="@string/hotels"
-            android:textAllCaps="false"
-            android:layout_marginEnd="@dimen/_8sdp"
-            android:layout_marginStart="@dimen/_8sdp"
             android:gravity="center"
             android:paddingTop="16dp"
             android:paddingBottom="@dimen/_6sdp"
+            android:text="@string/hotels"
+            android:textAllCaps="false"
             app:drawableTopCompat="@drawable/ic_hotel" />
 
         <TextView
@@ -133,15 +134,15 @@
             style="@style/CategoryTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
             android:layout_weight="1"
             android:background="@drawable/button_background"
-            android:text="@string/visa"
-            android:textAllCaps="false"
-            android:layout_marginEnd="@dimen/_8sdp"
-            android:layout_marginStart="@dimen/_8sdp"
             android:gravity="center"
             android:paddingTop="16dp"
             android:paddingBottom="@dimen/_6sdp"
+            android:text="@string/visa"
+            android:textAllCaps="false"
             app:drawableTopCompat="@drawable/ic_visa" />
 
         <TextView
@@ -149,14 +150,14 @@
             style="@style/CategoryTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
             android:layout_weight="1"
             android:background="@drawable/button_background"
-            android:text="@string/buses"
-            android:textAllCaps="false"
-            android:layout_marginStart="@dimen/_8sdp"
             android:gravity="center"
             android:paddingTop="16dp"
             android:paddingBottom="@dimen/_6sdp"
+            android:text="@string/buses"
+            android:textAllCaps="false"
             app:drawableTopCompat="@drawable/ic_bus" />
     </LinearLayout>
 
@@ -166,10 +167,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_30sdp"
+        android:fontFamily="@font/rubik_semi_bold"
         android:text="@string/recommended"
         android:textColor="@color/popular_text_color"
         android:textSize="@dimen/_14ssp"
-        android:fontFamily="@font/rubik_semi_bold"
         app:layout_constraintStart_toEndOf="@+id/guideline_start_vertical"
         app:layout_constraintTop_toBottomOf="@id/categoriesContainer" />
 
@@ -177,14 +178,17 @@
         android:id="@+id/seeAllTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/see_all"
         android:fontFamily="@font/rubik_regular"
+        android:paddingLeft="@dimen/_16sdp"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingRight="@dimen/_16sdp"
+        android:paddingBottom="@dimen/_8sdp"
+        android:text="@string/see_all"
         android:textColor="@color/common_color"
         android:textSize="@dimen/_10ssp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_end_vertical"
-        app:layout_constraintTop_toTopOf="@id/recommended"
         app:layout_constraintBottom_toBottomOf="@+id/recommended"
-        />
+        app:layout_constraintEnd_toStartOf="@+id/guideline_end_vertical"
+        app:layout_constraintTop_toTopOf="@id/recommended" />
 
     <!-- Recommended Items Scroll -->
 
@@ -193,23 +197,23 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/_10sdp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavBar"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/guideline_start_vertical"
         app:layout_constraintTop_toBottomOf="@id/recommended"
-        android:orientation="horizontal"
-        tools:listitem="@layout/item_property"/>
+        tools:listitem="@layout/item_property" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottomNavBar"
         android:layout_width="0dp"
         android:layout_height="@dimen/_53sdp"
-        android:background="@drawable/nav_bar_bg"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_20sdp"
+        android:background="@drawable/nav_bar_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView

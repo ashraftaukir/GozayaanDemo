@@ -7,7 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.taukir.gozayaandemo.databinding.ItemPropertyBinding
 
-class PropertyAdapter(private val properties: List<Property>) :
+class PropertyAdapter(private val properties: List<Property>,
+                      private val onPropertyClick: (Property) -> Unit // Lambda for handling item click
+
+
+) :
     RecyclerView.Adapter<PropertyAdapter.PropertyViewHolder>() {
 
     // ViewHolder with ViewBinding
@@ -34,7 +38,13 @@ class PropertyAdapter(private val properties: List<Property>) :
                 .placeholder(R.drawable.ic_hotel)
                 .error(R.mipmap.ic_launcher_round) // Replace with your error image resource
                 .into(imageView)
+
+            // Set click listener on mainConstraintLayout
+            mainConstraintLayout.setOnClickListener {
+                onPropertyClick(property) // Trigger the click callback and pass the property
+            }
         }
+
     }
 
     override fun getItemCount(): Int = properties.size

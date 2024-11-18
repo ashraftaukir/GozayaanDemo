@@ -55,7 +55,11 @@ class HomeActivity : AppCompatActivity() {
         propertyViewModel.properties.observe(this) { properties ->
             if (properties != null) {
                 propertyList = properties // Save the property list for later use
-                propertyAdapter = PropertyAdapter(properties)
+                propertyList = properties  // Store the properties list
+                propertyAdapter = PropertyAdapter(properties) { selectedProperty ->
+                    // Lambda function to handle item click
+                    navigateToPropertyDetails(selectedProperty)
+                }
                 binding.recommendedRecyclerView.adapter = propertyAdapter
             }
         }
@@ -82,17 +86,14 @@ class HomeActivity : AppCompatActivity() {
      // Navigates to the ViewAllPropertyActivity
 
     private fun navigateToViewAllProperties() {
-//        val intent = Intent(this, ViewAllPropertyActivity::class.java)
-//
-//        // Serialize the property list to JSON
-//        val gson = Gson()
-//        val json = gson.toJson(propertyList)
-//
-//        // Pass the JSON string via Intent
-//        intent.putExtra("property_list", json)
-//        startActivity(intent)
+        val intent = Intent(this, ViewAllPropertyActivity::class.java)
 
-        val intent = Intent(this, PropertyDetailsActivity::class.java)
+        // Serialize the property list to JSON
+        val gson = Gson()
+        val json = gson.toJson(propertyList)
+
+        // Pass the JSON string via Intent
+        intent.putExtra("property_list", json)
         startActivity(intent)
 
 
@@ -103,5 +104,18 @@ class HomeActivity : AppCompatActivity() {
 
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    // Navigates to PropertyDetailsActivity with the selected property
+    private fun navigateToPropertyDetails(property: Property) {
+        val intent = Intent(this, PropertyDetailsActivity::class.java)
+
+        // Serialize the property object into a JSON string
+        val gson = Gson()
+        val propertyJson = gson.toJson(property)
+        intent.putExtra("property_details", propertyJson)  // Pass the property as JSON
+
+        // Start the activity
+        startActivity(intent)
     }
 }

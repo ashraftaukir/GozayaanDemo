@@ -3,7 +3,7 @@ package com.taukir.gozayaandemo
 data class Property(
     val property_name: String,
     val location: String,
-    val rating: Double,
+    val rating: Float,
     val description: String,
     val fare: Double,
     val fare_unit: String,

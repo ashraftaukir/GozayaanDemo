@@ -39,11 +39,11 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="@dimen/_20sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageSlider">
+        app:layout_constraintBottom_toBottomOf="@+id/imageSlider"
+        >
     </LinearLayout>
 
 
@@ -51,13 +51,12 @@
     <!-- Back Button -->
     <ImageView
         android:id="@+id/backButton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="@dimen/_32sdp"
+        android:layout_height="@dimen/_32sdp"
+        android:layout_marginTop="@dimen/_30sdp"
         android:contentDescription="Back Button"
         android:src="@drawable/ic_back"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/guideline_start_vertical"
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Property Name -->
@@ -65,14 +64,14 @@
         android:id="@+id/propertyName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
         android:fontFamily="@font/rubik_semi_bold"
         android:text="@string/mountain_safari"
         android:textColor="@color/default_white"
         android:textSize="@dimen/_21ssp"
         app:layout_constraintStart_toEndOf="@id/guideline_start_vertical"
-        app:layout_constraintTop_toBottomOf="@+id/drawableIndicator"
+        app:layout_constraintTop_toBottomOf="@+id/imageSlider"
         app:layout_constraintEnd_toStartOf="@+id/ratingConstraintLayout"
         />
 

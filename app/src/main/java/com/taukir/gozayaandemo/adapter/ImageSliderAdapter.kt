@@ -18,9 +18,9 @@ class ImageSliderAdapter(private val images: List<String>) :
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
         val imageUrl = images[position]
         // Use Glide to load the image into the ImageView
-        Glide.with(holder.binding.imageView.context)
+        Glide.with(holder.binding.roundedImageView.context)
             .load(imageUrl)
-            .into(holder.binding.imageView)
+            .into(holder.binding.roundedImageView)
     }
 
     override fun getItemCount(): Int = images.size

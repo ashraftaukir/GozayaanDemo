@@ -1,10 +1,12 @@
-package com.taukir.gozayaandemo
+package com.taukir.gozayaandemo.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.taukir.gozayaandemo.adapter.DestinationAdapter
+import com.taukir.gozayaandemo.model.Property
 import com.taukir.gozayaandemo.databinding.ActivityViewAllBinding
 
 class ViewAllPropertyActivity : AppCompatActivity() {

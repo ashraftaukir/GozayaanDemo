@@ -1,6 +1,7 @@
-package com.taukir.gozayaandemo
+package com.taukir.gozayaandemo.repository
 
-import ApiService
+import com.taukir.gozayaandemo.network.ApiService
+import com.taukir.gozayaandemo.model.Property
 
 class PropertyRepository(private val apiService: ApiService) {
 

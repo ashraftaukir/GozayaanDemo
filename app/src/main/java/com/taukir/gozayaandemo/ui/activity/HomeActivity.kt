@@ -1,4 +1,4 @@
-package com.taukir.gozayaandemo
+package com.taukir.gozayaandemo.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,13 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
+import com.taukir.gozayaandemo.adapter.PropertyAdapter
 import com.taukir.gozayaandemo.databinding.ActivityHomeBinding
+import com.taukir.gozayaandemo.model.Property
+import com.taukir.gozayaandemo.network.RetrofitInstance
+import com.taukir.gozayaandemo.repository.PropertyRepository
+import com.taukir.gozayaandemo.ui.viewmodel.PropertyViewModel
+import com.taukir.gozayaandemo.ui.viewmodel.ViewModelFactory
 
 class HomeActivity : AppCompatActivity() {
 

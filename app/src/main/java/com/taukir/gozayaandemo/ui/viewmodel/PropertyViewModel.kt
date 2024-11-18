@@ -1,9 +1,11 @@
-package com.taukir.gozayaandemo
+package com.taukir.gozayaandemo.ui.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.taukir.gozayaandemo.model.Property
+import com.taukir.gozayaandemo.repository.PropertyRepository
 import kotlinx.coroutines.launch
 class PropertyViewModel(private val propertyRepository: PropertyRepository) : ViewModel() {
 

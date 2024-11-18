@@ -1,11 +1,13 @@
-package com.taukir.gozayaandemo
+package com.taukir.gozayaandemo.adapter
 
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.taukir.gozayaandemo.R
 import com.taukir.gozayaandemo.databinding.ItemPropertyBinding
+import com.taukir.gozayaandemo.model.Property
 
 class PropertyAdapter(private val properties: List<Property>,
                       private val onPropertyClick: (Property) -> Unit // Lambda for handling item click

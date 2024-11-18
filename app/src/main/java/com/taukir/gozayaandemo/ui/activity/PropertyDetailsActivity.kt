@@ -1,4 +1,4 @@
-package com.taukir.gozayaandemo
+package com.taukir.gozayaandemo.ui.activity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.google.gson.Gson
+import com.taukir.gozayaandemo.adapter.ImageSliderAdapter
+import com.taukir.gozayaandemo.model.Property
+import com.taukir.gozayaandemo.R
 import com.taukir.gozayaandemo.databinding.ActivityPropertyDetailsBinding
 
 class PropertyDetailsActivity : AppCompatActivity() {

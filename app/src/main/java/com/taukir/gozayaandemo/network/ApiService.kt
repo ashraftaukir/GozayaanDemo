@@ -1,4 +1,6 @@
-import com.taukir.gozayaandemo.Property
+package com.taukir.gozayaandemo.network
+
+import com.taukir.gozayaandemo.model.Property
 import retrofit2.Response
 import retrofit2.http.GET
 

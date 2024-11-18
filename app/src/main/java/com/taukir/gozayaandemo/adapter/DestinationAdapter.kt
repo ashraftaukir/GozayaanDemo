@@ -1,10 +1,12 @@
-package com.taukir.gozayaandemo
+package com.taukir.gozayaandemo.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.taukir.gozayaandemo.R
 import com.taukir.gozayaandemo.databinding.ItemDestinationBinding
+import com.taukir.gozayaandemo.model.Property
 
 
 class DestinationAdapter(private val destinations: List<Property>) :

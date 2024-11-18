@@ -1,4 +1,4 @@
-package com.taukir.gozayaandemo
+package com.taukir.gozayaandemo.model
 
 data class Property(
     val property_name: String,

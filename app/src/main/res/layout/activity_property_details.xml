@@ -31,17 +31,21 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Dot Indicator -->
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/dotIndicator"
+
+
+    <LinearLayout
+        android:id="@+id/drawableIndicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageSlider"
-        app:tabIndicatorColor="@android:color/white"
-        app:tabIndicatorHeight="3dp"
-        app:tabSelectedTextColor="@android:color/white" />
+        app:layout_constraintTop_toBottomOf="@id/imageSlider">
+    </LinearLayout>
+
 
 
     <!-- Back Button -->
@@ -68,7 +72,7 @@
         android:textColor="@color/default_white"
         android:textSize="@dimen/_21ssp"
         app:layout_constraintStart_toEndOf="@id/guideline_start_vertical"
-        app:layout_constraintTop_toBottomOf="@+id/dotIndicator"
+        app:layout_constraintTop_toBottomOf="@+id/drawableIndicator"
         app:layout_constraintEnd_toStartOf="@+id/ratingConstraintLayout"
         />
 

@@ -17,8 +17,8 @@ class DestinationAdapter(private val destinations: List<Property>) :
         fun bind(destination: Property) {
             Glide.with(itemView.context)
                 .load(destination.hero_image)
-                .placeholder(R.drawable.ic_hotel)
-                .error(R.mipmap.ic_launcher_round) // Replace with your error image resource
+                .placeholder(R.mipmap.ic_launcher)
+                .error(R.drawable.error_image_with_black_background)
                 .into(binding.destinationImage)
 
             binding.destinationTitle.text = destination.property_name

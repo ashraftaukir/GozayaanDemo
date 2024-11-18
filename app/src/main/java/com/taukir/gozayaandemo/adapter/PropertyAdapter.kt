@@ -37,8 +37,8 @@ class PropertyAdapter(private val properties: List<Property>,
             // Load the hero image using Glide
             Glide.with(holder.itemView.context)
                 .load(property.hero_image)
-                .placeholder(R.drawable.ic_hotel)
-                .error(R.mipmap.ic_launcher_round) // Replace with your error image resource
+                .placeholder(R.mipmap.ic_launcher)
+                .error(R.drawable.error_image_with_black_background)
                 .into(imageView)
 
             // Set click listener on mainConstraintLayout
